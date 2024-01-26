@@ -1,0 +1,25 @@
+version: "4.25.2"
+services:
+  app_service:
+    container_name: app_gestlaboratorios_cont
+    image: gestlaboratorios_img:1.0.0
+    build:
+      context: .
+    ports:
+      - '8082:8080'
+    environment:
+      - BD_PostgreSQL=jdbc:postgresql://conexionPostgreSQL_service/laboratoriosdb
+      - USUARIO_PostgreSQL=i42rocrr
+      - PASSWORD_PostgreSQL=Oca.14005
+    depends_on:
+      - conexionPostgreSQL_service
+  conexionPostgreSQL_service:
+    image: postgres
+    container_name: postgresql_cont
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRESQL_PASSWORD=secreta
+      - POSTGRESQL_DATABASE=localhost/laboratoriosdb:5433
+    volumes:
+      - ../../Recursos/Volumenes/Vol_PostgreSQL:/var/lib/pgsql/data
