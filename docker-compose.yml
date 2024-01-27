@@ -15,11 +15,14 @@ services:
       - conexionPostgreSQL_service
   conexionPostgreSQL_service:
     image: postgres
-    container_name: postgresql_cont
+    container_name: postgresql_gestlaboratorios_cont
     ports:
       - 5433:5432
+    expose:
+      - "5433"
     environment:
-      - POSTGRESQL_PASSWORD=secreta
-      - POSTGRESQL_DATABASE=localhost/laboratoriosdb:5433
+      - POSTGRES_DB=laboratoriosdb
+      - POSTGRES_USER=i42rocrr
+      - POSTGRES_PASSWORD=Oca.14005
     volumes:
-      - ../../Recursos/Volumenes/Vol_PostgreSQL:/var/lib/pgsql/data
+      - ../../Recursos/Volumenes/Vol_PostgreSQL:/var/lib/postgresql/data
