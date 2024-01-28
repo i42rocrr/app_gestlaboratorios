@@ -7,6 +7,9 @@ services:
       context: .
     ports:
       - '8082:8080'
+    networks:
+      TFG_network:
+        ipv4_address: 192.168.0.3
     environment:
       - BD_PostgreSQL=jdbc:postgresql://conexionPostgreSQL_service/laboratoriosdb
       - USUARIO_PostgreSQL=i42rocrr
@@ -26,3 +29,15 @@ services:
       - POSTGRES_PASSWORD=Oca.14005
     volumes:
       - ../../Recursos/Volumenes/Vol_PostgreSQL:/var/lib/postgresql/data
+    networks:
+      TFG_network:
+        ipv4_address: 192.168.0.2
+    hostname: postgresqlserver
+networks:
+  TFG_network:
+    name: TFG_net
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.0.0/24
+          gateway: 192.168.0.1
