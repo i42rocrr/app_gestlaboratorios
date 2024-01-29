@@ -20,7 +20,8 @@ public class FarmacosLaboratorios {
     @Column
     private String nombre;
 
-    @ManyToMany (fetch = FetchType.LAZY)
+    //@ManyToMany (fetch = FetchType.LAZY)
+    @ManyToMany (fetch = FetchType.EAGER)
     @JoinTable(
             name = "FarmacosLaboratorios_Lista",
             joinColumns = @JoinColumn(name = "farmaco_id"),

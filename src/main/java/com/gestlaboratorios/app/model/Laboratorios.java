@@ -24,7 +24,7 @@ public class Laboratorios {
     @Column
     private String email;
 
-    @ManyToMany (mappedBy = "laboratoriosList")
+    @ManyToMany (mappedBy = "laboratoriosList", fetch = FetchType.EAGER)
     private List<FarmacosLaboratorios> farmacosLaboratoriosList;
 
 }
