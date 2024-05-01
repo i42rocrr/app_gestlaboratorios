@@ -12,8 +12,8 @@ services:
         ipv4_address: 192.168.0.3
     environment:
       - BD_PostgreSQL=jdbc:postgresql://conexionPostgreSQL_service/laboratoriosdb
-      - USUARIO_PostgreSQL=i42rocrr
-      - PASSWORD_PostgreSQL=Oca.14005
+      - USUARIO_PostgreSQL=usuario
+      - PASSWORD_PostgreSQL=secreta
     depends_on:
       - conexionPostgreSQL_service
   conexionPostgreSQL_service:
@@ -25,8 +25,8 @@ services:
       - "5433"
     environment:
       - POSTGRES_DB=laboratoriosdb
-      - POSTGRES_USER=i42rocrr
-      - POSTGRES_PASSWORD=Oca.14005
+      - POSTGRES_USER=usuario
+      - POSTGRES_PASSWORD=secreta
     volumes:
       - ../Volumenes/Vol_PostgreSQL:/var/lib/postgresql/data
     networks:
