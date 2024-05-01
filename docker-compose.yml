@@ -28,7 +28,7 @@ services:
       - POSTGRES_USER=i42rocrr
       - POSTGRES_PASSWORD=Oca.14005
     volumes:
-      - ../../Recursos/Volumenes/Vol_PostgreSQL:/var/lib/postgresql/data
+      - ../Volumenes/Vol_PostgreSQL:/var/lib/postgresql/data
     networks:
       TFG_network:
         ipv4_address: 192.168.0.2
